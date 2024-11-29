@@ -112,20 +112,21 @@ class paramspiderm(BHunters):
                 if ".js" in i and i !="":
                     
                     try:
+                        if self.checkjs(i):
 
-                        collection2 = db["js"]
-                        existing_document = collection2.find_one({"url": i})
-                        if existing_document is None:
-                            jsdata.append(i)
-                            tag_task = Task(
-                                {"type": "js", "stage": "new"},
-                                payload={"data": url,
-                                "subdomain":domain,
-                                "file": i,
-                                "module":"katana"
-                                }
-                            )
-                            self.send_task(tag_task)
+                            collection2 = db["js"]
+                            existing_document = collection2.find_one({"url": i})
+                            if existing_document is None:
+                                jsdata.append(i)
+                                tag_task = Task(
+                                    {"type": "js", "stage": "new"},
+                                    payload={"data": url,
+                                    "subdomain":domain,
+                                    "file": i,
+                                    "module":"katana"
+                                    }
+                                )
+                                self.send_task(tag_task)
                     except Exception as e:
                         raise Exception(e)
     
