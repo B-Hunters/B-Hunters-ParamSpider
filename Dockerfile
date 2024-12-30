@@ -5,7 +5,7 @@ RUN apt update &&  apt install git -y && apt clean && rm -rf /var/lib/apt/lists/
 RUN git clone https://github.com/bormaa/ParamSpider /app/paramspider
 WORKDIR /app/paramspider
 RUN pip install .
-RUN pip install --no-cache-dir b-hunters==1.1.7
+RUN pip install --no-cache-dir b-hunters==1.1.13
 
 WORKDIR /app/service
 
