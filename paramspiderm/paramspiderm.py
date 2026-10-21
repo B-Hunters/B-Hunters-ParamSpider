@@ -99,8 +99,7 @@ class paramspiderm(BHunters):
                     {"type": "paths", "stage": "scan"},
                     payload={"data": urlstripped,
                             "subdomain":domain,
-                    "source":"paramspider",
-                    "type":"file"
+                    "source":"paramspider"
                     }
                 )
                 self.send_task(tag_task)
